@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button boton_as, boton_marca;
     ListView listado;
     ArrayList<String> arrayList;
-    ArrayAdapter<String> adapter;
+    ArrayAdapter<String> arrayAdapter;
     Conexion hilo_conexion;
     //String conexion_Url = "http://www.elpais.com/rss/feed.html?feedId=1022";
     String marca_atleti = "http://estaticos.marca.com/rss/futbol/atletico.xml";
@@ -113,9 +112,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         @Override
-        protected void onPostExecute(ArrayList<String> salida) {
-            adapter = new ArrayAdapter<String>(getBaseContext(), R.layout.fila, R.id.texto_fila_TextView, salida);
-            listado.setAdapter(adapter);
+        protected void onPostExecute(ArrayList<String> salida_Background) {
+            arrayAdapter = new ArrayAdapter<String>(getBaseContext(), R.layout.fila,
+                    R.id.texto_fila_TextView, salida_Background);
+            listado.setAdapter(arrayAdapter);
         }
 
         @Override
