@@ -86,12 +86,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     while (linea != null) {
                         if (linea.contains("<title><![CDATA")){
-                            /*i = linea.indexOf("<title>")+16;
+                            k = linea.indexOf("<![CDATA[&nbsp;<a href=\"")+6;
+                            l = linea.indexOf("\">Leer</a>")-2;
+                            //arrayList.add(linea.substring(k, l));
+                            i = linea.indexOf("<title>")+16;
                             j = linea.indexOf("</title>")-3;
-                            arrayList.add(linea.substring(i, j));*/
-                            k = linea.indexOf("<link>")+6;
-                            l = linea.indexOf("</link>");
-                            arrayList.add(linea.substring(k, l));
+                            arrayList.add(linea.substring(i, j));
                         }
                         linea = lector.readLine();
                     }
