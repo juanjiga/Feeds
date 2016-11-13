@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         boton_marca.setOnClickListener(this);
 
         listado = (ListView) findViewById(R.id.listado_ListView);
+
     }
 
     @Override
@@ -50,9 +53,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 hilo_conexion.execute();
                 break;
             case R.id.as_Button:
-                url_rss = as_atleti;
+                /*url_rss = as_atleti;
                 hilo_conexion = new Conexion();
-                hilo_conexion.execute();
+                hilo_conexion.execute();*/
+                WebView webView = (WebView) findViewById(R.id.webview);
+                webView.loadUrl("http://www.marca.com");
+                webView.setWebViewClient(new WebViewClient());
             default:
                 break;
         }
